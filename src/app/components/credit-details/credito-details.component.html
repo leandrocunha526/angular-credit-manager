@@ -1,0 +1,36 @@
+<div *ngIf="credito; else loading" class="credito-details">
+  <h2>Detalhes do Crédito Nº {{ credito.numeroCredito }}</h2>
+
+  <p><strong>Nº NFS-e:</strong> {{ credito.numeroNfse }}</p>
+  <p>
+    <strong>Constituição:</strong>
+    {{ credito.dataConstituicao | date : "dd/MM/yyyy" }}
+  </p>
+  <p><strong>Tipo de Crédito:</strong> {{ credito.tipoCredito }}</p>
+  <p>
+    <strong>Simples Nacional:</strong>
+    {{ credito.simplesNacional ? "Sim" : "Não" }}
+  </p>
+  <p><strong>Alíquota (%):</strong> {{ credito.aliquota }}%</p>
+  <p>
+    <strong>Valor Faturado:</strong>
+    {{ credito.valorFaturado | currency : "BRL" }}
+  </p>
+  <p>
+    <strong>Valor Dedução:</strong>
+    {{ credito.valorDeducao | currency : "BRL" }}
+  </p>
+  <p>
+    <strong>Base de Cálculo:</strong>
+    {{ credito.baseCalculo | currency : "BRL" }}
+  </p>
+  <p>
+    <strong>Valor ISSQN:</strong> {{ credito.valorIssqn | currency : "BRL" }}
+  </p>
+
+  <button mat-raised-button color="primary" routerLink="/">Voltar</button>
+</div>
+
+<ng-template #loading>
+  <p>Carregando...</p>
+</ng-template>

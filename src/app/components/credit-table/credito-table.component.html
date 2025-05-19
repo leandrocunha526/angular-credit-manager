@@ -1,0 +1,39 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="creditos" class="mat-table">
+    <ng-container matColumnDef="numeroCredito">
+      <th mat-header-cell *matHeaderCellDef>Nº Crédito</th>
+      <td mat-cell *matCellDef="let c">{{ c.numeroCredito }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="numeroNfse">
+      <th mat-header-cell *matHeaderCellDef>Nº NFS-e</th>
+      <td mat-cell *matCellDef="let c">{{ c.numeroNfse }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataConstituicao">
+      <th mat-header-cell *matHeaderCellDef>Constituição</th>
+      <td mat-cell *matCellDef="let c">
+        {{ c.dataConstituicao | date : "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valorIssqn">
+      <th mat-header-cell *matHeaderCellDef>ISSQN</th>
+      <td mat-cell *matCellDef="let c">
+        {{ c.valorIssqn | currency : "BRL" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="detalhes">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let c">
+        <button mat-icon-button (click)="verDetalhes(c.id)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
