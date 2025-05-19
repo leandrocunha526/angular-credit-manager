@@ -1,0 +1,16 @@
+services:
+  angular-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: angular-dev
+    ports:
+      - "4200:4200" # Porta do Angular
+    volumes:
+      - .:/app # Código do host → container
+      - /app/node_modules # Impede conflitos de node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Necessário para hot reload em alguns SOs (ex: Windows/WSL/Mac)
+      - NG_CLI_ANALYTICS=false # Desabilita o analytics do Angular CLI
+    stdin_open: true
+    tty: true
