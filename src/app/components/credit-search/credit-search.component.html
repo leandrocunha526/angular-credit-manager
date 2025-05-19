@@ -40,14 +40,14 @@
       <tr *ngFor="let c of creditos">
         <td>{{ c.numeroCredito }}</td>
         <td>{{ c.numeroNfse }}</td>
-        <td>{{ c.dataConstituicao }}</td>
-        <td>{{ c.valorIssqn }}</td>
+        <td>{{ c.dataConstituicao | date : "dd/MM/yyyy" }}</td>
+        <td>{{ c.valorIssqn | currency : "BRL" }}</td>
         <td>{{ c.tipoCredito }}</td>
         <td>{{ c.simplesNacional ? "Sim" : "Não" }}</td>
         <td>{{ c.aliquota }}</td>
-        <td>{{ c.valorFaturado }}</td>
-        <td>{{ c.valorDeducao }}</td>
-        <td>{{ c.baseCalculo }}</td>
+        <td>{{ c.valorFaturado | currency : "BRL" }}</td>
+        <td>{{ c.valorDeducao | currency : "BRL" }}</td>
+        <td>{{ c.baseCalculo | currency : "BRL" }}</td>
       </tr>
     </tbody>
   </table>
