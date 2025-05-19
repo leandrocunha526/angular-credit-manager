@@ -32,4 +32,8 @@ export class CreditoService {
   getById(id: number): Observable<Credito> {
     return this.http.get<Credito>(`${this.apiUrl}/${id}`);
   }
+
+  getByNumeroNfse(numeroNfse: string): Observable<Credito[]> {
+    return this.http.get<Credito[]>(`${this.apiUrl}/search/${numeroNfse}`);
+  }
 }

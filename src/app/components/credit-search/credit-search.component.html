@@ -1,0 +1,54 @@
+<div class="search-container">
+  <h2>Consulta de Créditos</h2>
+
+  <div class="search-group">
+    <label for="nfse">Buscar por número da NFS-e:</label>
+    <div class="search-input-wrapper">
+      <input
+        id="nfse"
+        [(ngModel)]="numeroNfse"
+        class="styled-input"
+        placeholder="Digite o número da NFS-e"
+        type="search"
+      />
+      <button (click)="buscarPorNumeroNfse()" class="search-button">
+        Buscar
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="erro" class="error">
+    {{ erro }}
+  </div>
+
+  <table *ngIf="creditos.length > 0" class="result-table">
+    <thead>
+      <tr>
+        <th>Número Crédito</th>
+        <th>Número NFS-e</th>
+        <th>Data Constituição</th>
+        <th>Valor ISSQN</th>
+        <th>Tipo</th>
+        <th>Simples Nacional</th>
+        <th>Alíquota</th>
+        <th>Valor Faturado</th>
+        <th>Dedução</th>
+        <th>Base de Cálculo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of creditos">
+        <td>{{ c.numeroCredito }}</td>
+        <td>{{ c.numeroNfse }}</td>
+        <td>{{ c.dataConstituicao }}</td>
+        <td>{{ c.valorIssqn }}</td>
+        <td>{{ c.tipoCredito }}</td>
+        <td>{{ c.simplesNacional ? "Sim" : "Não" }}</td>
+        <td>{{ c.aliquota }}</td>
+        <td>{{ c.valorFaturado }}</td>
+        <td>{{ c.valorDeducao }}</td>
+        <td>{{ c.baseCalculo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

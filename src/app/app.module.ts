@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { CreditSearchComponent } from './components/credit-search/credit-search.component';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localePt);
 
@@ -25,7 +27,8 @@ registerLocaleData(localePt);
   declarations: [
     AppComponent,
     CreditoTableComponent,
-    CreditoDetailsComponent
+    CreditoDetailsComponent,
+    CreditSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ registerLocaleData(localePt);
     MatSidenavModule,
     MatListModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' }
